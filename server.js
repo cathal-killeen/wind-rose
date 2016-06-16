@@ -8,6 +8,14 @@ var moment = require('moment');
 
 var db = require('./db.js');
 
+function sleep(time, callback) {
+    var stop = new Date().getTime();
+    while(new Date().getTime() < stop + time) {
+        
+    }
+    callback();
+}
+
 app.use(express.static(__dirname + '/public'));
 
 socket.on('connect', function(){
@@ -40,19 +48,22 @@ socket.on('metric', function(message){
     }
 
     if(message.SNAPMESSAGE.Payload.SensorId === 'ANE'){
-        db.entry.find({
-            where: {
-                timestamp: message.SNAPMESSAGE.Header.Ts
-            }
-        }).then(function(entry){
-            if(!entry){
-                db.entry.create({
-                    timestamp: message.SNAPMESSAGE.Header.Ts,
-                    speed: message.SNAPMESSAGE.Payload.SensorVal
-                })
-            }else{
-                entry.update({speed: message.SNAPMESSAGE.Payload.SensorVal})
-            }
+        //wait in case WV and ANE arrive at same time
+        sleep(1000, function(){
+            db.entry.find({
+                where: {
+                    timestamp: message.SNAPMESSAGE.Header.Ts
+                }
+            }).then(function(entry){
+                if(!entry){
+                    db.entry.create({
+                        timestamp: message.SNAPMESSAGE.Header.Ts,
+                        speed: message.SNAPMESSAGE.Payload.SensorVal
+                    })
+                }else{
+                    entry.update({speed: message.SNAPMESSAGE.Payload.SensorVal})
+                }
+            })
         })
     }
 })
