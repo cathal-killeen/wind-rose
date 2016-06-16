@@ -15,6 +15,7 @@
     "mqtt": "^1.11.1",
     "sequelize": "^3.23.3",
     "socket.io": "^1.4.5",
-    "socket.io-client": "^1.4.6"
+    "socket.io-client": "^1.4.6",
+    "sqlite3": "^3.1.4"
   }
 }
