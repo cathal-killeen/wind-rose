@@ -1,0 +1,22 @@
+{
+  "name": "wind-rose",
+  "description": "Wind rose demo",
+  "main": "server.js",
+  "authors": [
+    "Cathal Killeen"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0"
+  }
+}
