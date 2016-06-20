@@ -11,12 +11,18 @@ var db = require('./db.js');
 function sleep(time, callback) {
     var stop = new Date().getTime();
     while(new Date().getTime() < stop + time) {
-        
+
     }
     callback();
 }
 
 app.use(express.static(__dirname + '/public'));
+
+app.get('/metrics', function(req, res){
+    db.entry.findAll().then(function(entries){
+        res.status(200).send(entries);
+    })
+})
 
 socket.on('connect', function(){
     console.log('successfully connected to ' + SERVER_URL);
