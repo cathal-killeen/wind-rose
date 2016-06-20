@@ -22,11 +22,11 @@ var app = angular.module('windRose', [])
         },
 
         title: {
-            text: 'Wind rose for South Shore Met Station, Oregon'
+            text: 'Plezica wind rose demo'
         },
 
         subtitle: {
-            text: 'Source: or.water.usgs.gov'
+            text: ''
         },
 
         pane: {
