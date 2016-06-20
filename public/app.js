@@ -5,6 +5,9 @@ var app = angular.module('windRose', [])
         $scope.metrics = res;
         $scope.directions = Metrics.directions();
         console.log($scope.metrics);
+        console.log($scope.metrics.speedFreq('NE', 2, 10));
+
+        $scope.$apply();
 
 
         // Parse the data from an inline table using the Highcharts Data plugin
