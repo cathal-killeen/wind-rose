@@ -44,7 +44,18 @@ var app = angular.module('windRose', [])
         },
 
         xAxis: {
-            tickmarkPlacement: 'on'
+            tickmarkPlacement: 'on',
+            plotLines: [{
+                color: 'red', // Color value
+                //dashStyle: 'longdashdot', // Style of the plot line. Default to solid
+                value: 4, // Value of where the line will appear
+                width: 3, // Width of the line
+                label: {
+                    text: 'Current : 12 m/s E', // Content of the label.
+                    align: 'right', // Positioning of the label.Default to center.
+                    x: +30 // Amount of pixels the label will be repositioned according to the alignment.
+                }
+  }]
         },
 
         yAxis: {
