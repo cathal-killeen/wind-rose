@@ -6,6 +6,7 @@ var express = require('express');
 var app = express();
 var moment = require('moment');
 var request = require('request');
+var Promise = require('promise');
 
 function getSpeeds(node, start, end){
     return new Promise(function(resolve, reject) {
