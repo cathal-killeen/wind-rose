@@ -33,7 +33,7 @@ app
                 return f_total/this.totalPoints() * 100;
             }
     }
-    var url = 'http://localhost:8000';
+    var url = 'http://159.122.211.137:8000';
 
     return {
         get: function(options){
