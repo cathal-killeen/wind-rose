@@ -6,7 +6,6 @@ var express = require('express');
 var app = express();
 var moment = require('moment');
 var request = require('request');
-var bodyParser = require('body-parser');
 
 function getSpeeds(node, start, end){
     return new Promise(function(resolve, reject) {
