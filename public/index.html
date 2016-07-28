@@ -4,8 +4,19 @@
         <meta charset="utf-8">
         <title></title>
 
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" charset="utf-8">
+        <!-- datetimepicker -->
+        <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
         <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+        <script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+        <script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
 
         <script src="app.js"></script>
 
@@ -17,9 +28,55 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-<div id="container" style="min-width: 420px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
+<div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default" style="margin-top: 10em">
+            <div class="panel-body">
+                <div id="container" style="min-width: 420px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+            </div>
+        </div>
+</div>
+<div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default" style="margin-top: 2em">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Node</label>
+                        <div class="col-sm-10">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Start</label>
+                        <div class="col-sm-10">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                    <div class="input-group"><input type="text" class="form-control" data-ng-model="options.start"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <datetimepicker data-ng-model="options.start" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"/>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">End</label>
+                        <div class="col-sm-10">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                    <div class="input-group"><input type="text" class="form-control" data-ng-model="options.end"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <datetimepicker data-ng-model="options.end" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-default" type="button" ng-href="{{downloadLink()}}" target="_blank">Download</a>
+                </form>
+            </div>
+        </div>
+    </div>
 <div style="display:none">
     <!-- Source: http://or.water.usgs.gov/cgi-bin/grapher/graph_windrose.pl -->
     <table id="freq" border="0" cellspacing="0" cellpadding="0">

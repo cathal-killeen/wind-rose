@@ -25,7 +25,7 @@ var app = angular.module('windRose', [])
         },
 
         title: {
-            text: 'Plezica wind rose demo'
+            text: 'Wind Rose'
         },
 
         subtitle: {

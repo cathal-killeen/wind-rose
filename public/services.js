@@ -33,13 +33,13 @@ app
                 return f_total/this.totalPoints() * 100;
             }
     }
-    var url = 'https://plezica-wind-rose.herokuapp.com';
+    var url = 'http://localhost:8000';
 
     return {
         get: function(){
             return new Promise(function(resolve, reject) {
                 $http.get(url + '/metrics').then(function(res){
-                    var metrics = new Metrics(directions, res);
+                    var metrics = new Metrics();
                     directions.forEach(function(dir){
                         metrics.directions[dir] = [];
                     })
