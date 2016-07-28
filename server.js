@@ -64,8 +64,9 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/metrics', function(req, res){
     var NODE = "408510454.teagasc2";
-    getDirections(NODE, req.params.from, req.params.until).then(function(directions){
-        getSpeeds(NODE, req.params.from, req.params.until).then(function(speeds){
+    console.log(req.query.from);
+    getDirections(NODE, req.query.from, req.query.until).then(function(directions){
+        getSpeeds(NODE, req.query.from, req.query.until).then(function(speeds){
             var metrics = [];
             for(var i=0; i<speeds.length; i++){
                 //check if timestamps equal
@@ -76,7 +77,6 @@ app.get('/metrics', function(req, res){
                     }
                 }
             }
-            console.log(metrics);
             res.status(200).json(metrics);
         }).catch(function(err){
             res.status(500).send("error getting speeds: " + err);

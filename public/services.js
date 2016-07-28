@@ -36,9 +36,11 @@ app
     var url = 'http://localhost:8000';
 
     return {
-        get: function(){
+        get: function(options){
             return new Promise(function(resolve, reject) {
-                $http.get(url + '/metrics').then(function(res){
+                $http.get(url + '/metrics' +
+                            '?from=' + moment(options.start).unix() +
+                            '&until=' + moment(options.end).unix()).then(function(res){
                     var metrics = new Metrics();
                     directions.forEach(function(dir){
                         metrics.directions[dir] = [];
